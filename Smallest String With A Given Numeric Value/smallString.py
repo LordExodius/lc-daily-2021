@@ -9,7 +9,7 @@ def getSmallestString(self, n: int, k: int) -> str:
     while k > 0:
         if string[index] < 26:
             string[index] += 1
-            k -= 1
+            k -= 1  
         else:
             index -= 1
     return "".join([chr(n + 96) for n in string])
