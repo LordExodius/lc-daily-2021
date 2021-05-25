@@ -1,6 +1,7 @@
 # Oscar Yu
 # May 21st, 2021
-# getSmallestString2() is a more optimized version using f string formatting
+# getSmallestString2() is a more optimized version of original using f string formatting
+# getSmallestString3() is final modulus solution
 
 def getSmallestString(self, n: int, k: int) -> str:
     string = [1 for i in range(n)]
@@ -26,8 +27,8 @@ def getSmallestString2(self, n: int, k: int) -> str:
     return f"{string:a>{n}}"
 
 def getSmallestString3(self, n: int, k: int) -> str:
-    k -= n
-    string = chr((k + k//25)%26 + 97) + k//25 * "z"
+    k -= n # assume all letters are a/have value 1 to begin with
+    string = chr((k + k//25)%26 + 97) + k//25 * "z" # because every position already has value 1/is a, only 25 counts are required to get to z
     while len(string) > n:
         string = string[1:]
     return f"{string:a>{n}}"
