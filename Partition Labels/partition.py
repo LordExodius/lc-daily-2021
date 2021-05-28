@@ -19,8 +19,7 @@ def partitionLabels(self, s: str) -> list[int]:
         left = s.find(letter)
         right = s.rfind(letter)
 
-        while any(s.find(subLetter) < left for subLetter in getSet(s[left:right])) or any(s.rfind(subLetter) > right for subLetter in getSet(s[left:right])):
-            left = min(s.find(subLetter) for subLetter in getSet(s[left:right]))
+        while any(s.rfind(subLetter) > right for subLetter in getSet(s[left:right])):
             right = max(s.rfind(subLetter) for subLetter in getSet(s[left:right]))
         else:
             #print(f"Left: {left} w/ {s[left]}")
