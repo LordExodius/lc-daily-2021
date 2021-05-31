@@ -1,3 +1,6 @@
+# Oscar Yu
+# May 26st, 2021
+
 def findPoisonedDuration(self, timeSeries: list[int], duration: int) -> int:
     poisonedTime = 0
     prevEnd = 0
