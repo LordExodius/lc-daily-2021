@@ -33,7 +33,9 @@ threadB = threading.Thread(target=bCounter, args=())
 threadA.start()
 threadB.start()
 
+"""
 while counter < 100:
     None
 else:
     print(aCount, bCount)
+"""
