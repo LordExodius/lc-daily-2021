@@ -1,0 +1,28 @@
+# Oscar Yu
+# June 18th, 2021
+
+from threading import Lock
+
+class FooBar:
+    def __init__(self, n):
+        self.n = n
+        self.fooLock = Lock()
+        self.barLock = Lock()
+        self.barLock.acquire()
+
+
+    def foo(self, printFoo: 'Callable[[], None]') -> None:
+
+        for i in range(self.n):
+            self.fooLock.acquire()
+            # printFoo() outputs "foo". Do not change or remove this line.
+            printFoo()
+            self.barLock.release()
+
+    def bar(self, printBar: 'Callable[[], None]') -> None:
+
+        for i in range(self.n):
+            self.barLock.acquire()
+            # printBar() outputs "bar". Do not change or remove this line.
+            printBar()
+            self.fooLock.release()
